@@ -1833,7 +1833,125 @@
   >
     <i class="fa-brands fa-whatsapp"></i>
   </a>
+<!-- AI PORTFOLIO ASSISTANT -->
+<div class="portfolio-chat">
 
+  <!-- Chat Button -->
+  <button
+    type="button"
+    id="chat-toggle"
+    class="chat-toggle"
+    aria-label="Open portfolio assistant"
+  >
+    <i class="fa-solid fa-wand-magic-sparkles"></i>
+  </button>
+
+
+  <!-- Chat Window -->
+  <div
+    id="chat-window"
+    class="chat-window"
+    aria-hidden="true"
+  >
+
+    <!-- Header -->
+    <div class="chat-header">
+
+      <div class="chat-header-info">
+
+        <div class="chat-avatar">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+
+        <div>
+          <strong>Cynthia's Assistant</strong>
+          <span>
+            <i class="fa-solid fa-circle"></i>
+            Portfolio Assistant
+          </span>
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        id="chat-close"
+        class="chat-close"
+        aria-label="Close assistant"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+    </div>
+
+
+    <!-- Messages -->
+    <div
+      id="chat-messages"
+      class="chat-messages"
+    >
+
+      <div class="chat-message assistant-message">
+        <p>
+          Hi! 👋 I'm Cynthia's portfolio assistant.
+        </p>
+
+        <p>
+          I can tell you about her skills, experience,
+          education, projects, and how to get in touch.
+        </p>
+      </div>
+
+
+      <!-- Quick Questions -->
+      <div class="chat-quick-actions">
+
+        <button type="button" data-question="Tell me about Cynthia">
+          About Cynthia
+        </button>
+
+        <button type="button" data-question="What are Cynthia's skills?">
+          Technical Skills
+        </button>
+
+        <button type="button" data-question="Tell me about Cynthia's experience">
+          Experience
+        </button>
+
+        <button type="button" data-question="How can I contact Cynthia?">
+          Contact
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Input -->
+    <form
+      id="chat-form"
+      class="chat-input-area"
+    >
+
+      <input
+        type="text"
+        id="chat-input"
+        placeholder="Ask about Cynthia..."
+        autocomplete="off"
+      >
+
+      <button
+        type="submit"
+        aria-label="Send message"
+      >
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
 
   <script>
 
@@ -1878,7 +1996,6 @@
 ================================ */
 
 const bookingCalendar = document.getElementById("booking-calendar");
-const bookingSlots = document.getElementById("booking-slots");
 const selectedBooking = document.getElementById("selected-booking");
 const scheduleBooking = document.getElementById("schedule-booking");
 
@@ -1890,6 +2007,8 @@ let calendarDate = new Date();
 const BOOKING_START_HOUR = 9;
 const BOOKING_END_HOUR = 20;
 const SLOT_DURATION = 15;
+
+
 
 
 /* ================================
@@ -2393,8 +2512,367 @@ bookingForm.addEventListener("submit", (event) => {
   bookingSuccess.hidden = false;
 
 });
+/* ================================
+   PORTFOLIO CHAT ASSISTANT
+================================ */
 
+const chatToggle = document.getElementById("chat-toggle");
+const chatClose = document.getElementById("chat-close");
+const chatWindow = document.getElementById("chat-window");
+
+const chatMessages = document.getElementById("chat-messages");
+const chatForm = document.getElementById("chat-form");
+const chatInput = document.getElementById("chat-input");
+
+const quickQuestions =
+  document.querySelectorAll(".chat-quick-actions button");
+
+
+/* ================================
+   OPEN / CLOSE CHAT
+================================ */
+
+function openChat() {
+  chatWindow.classList.add("active");
+  chatWindow.setAttribute("aria-hidden", "false");
+
+  setTimeout(() => {
+    chatInput.focus();
+  }, 250);
+}
+
+
+function closeChat() {
+  chatWindow.classList.remove("active");
+  chatWindow.setAttribute("aria-hidden", "true");
+}
+
+
+chatToggle.addEventListener("click", () => {
+
+  if (chatWindow.classList.contains("active")) {
+    closeChat();
+  } else {
+    openChat();
+  }
+
+});
+
+
+chatClose.addEventListener("click", closeChat);
+
+
+/* ================================
+   ADD MESSAGE
+================================ */
+
+function addChatMessage(message, type) {
+
+  const messageElement =
+    document.createElement("div");
+
+  messageElement.className =
+    `chat-message ${type}-message`;
+
+  messageElement.innerHTML =
+    `<p>${message}</p>`;
+
+  chatMessages.appendChild(messageElement);
+
+  chatMessages.scrollTop =
+    chatMessages.scrollHeight;
+}
+
+
+/* ================================
+   PORTFOLIO KNOWLEDGE
+================================ */
+
+function getPortfolioResponse(question) {
+
+  const query =
+    question.toLowerCase().trim();
+
+
+  /* ABOUT */
+
+  if (
+    query.includes("who is cynthia") ||
+    query.includes("about cynthia") ||
+    query.includes("tell me about cynthia") ||
+    query.includes("who is she")
+  ) {
+
+    return `
+      Cynthia Chemutai Kirui is a Software Engineer
+      and Full-Stack Developer based in Nairobi, Kenya.
+      She holds a BSc in Informatics and Computer Science
+      from Strathmore University and currently works as a
+      Junior Software Developer at Prisma Kenya Ltd.
+    `;
+
+  }
+
+
+  /* SKILLS */
+
+  if (
+    query.includes("skill") ||
+    query.includes("technolog") ||
+    query.includes("tech stack") ||
+    query.includes("programming")
+  ) {
+
+    return `
+      Cynthia works with JavaScript, TypeScript, Python,
+      PHP, C++, React.js, Vue.js, Node.js, Django,
+      Laravel, Flask, FastAPI, REST APIs, MySQL,
+      PostgreSQL, SQLite, MongoDB, Git, GitHub, Docker,
+      CI/CD and other development tools.
+    `;
+
+  }
+
+
+  /* EXPERIENCE */
+
+  if (
+    query.includes("experience") ||
+    query.includes("work history") ||
+    query.includes("worked")
+  ) {
+
+    return `
+      Cynthia currently works as a Junior Software Developer
+      at Prisma Kenya Ltd. Her previous experience includes
+      Software Engineering at Planate Management Group,
+      Software Development internships at Hela Capital Ltd
+      and Strathmore University, and IT Support experience
+      at East African Portland Cement PLC.
+    `;
+
+  }
+
+
+  /* PRISMA */
+
+  if (query.includes("prisma")) {
+
+    return `
+      At Prisma Kenya Ltd, Cynthia works on web applications,
+      backend services and database-driven functionality using
+      technologies including React.js, JavaScript, TypeScript
+      and Python. She also contributes to testing, debugging,
+      deployment, system maintenance and AI-enabled solutions.
+    `;
+
+  }
+
+
+  /* PLANATE */
+
+  if (query.includes("planate")) {
+
+    return `
+      At Planate Management Group, Cynthia worked as a
+      Software Engineer Intern, contributing to enterprise
+      software projects, frontend development, UI/UX
+      implementation, API integration, testing and
+      AI-enabled solutions.
+    `;
+
+  }
+
+
+  /* PROJECTS */
+
+  if (
+    query.includes("project") ||
+    query.includes("portfolio")
+  ) {
+
+    return `
+      Cynthia's experience includes enterprise software,
+      responsive web interfaces, dashboards, backend/API
+      integrations, AI-enabled applications and chatbot
+      solutions. Some project details are kept general
+      because of confidentiality requirements.
+    `;
+
+  }
+
+
+  /* EDUCATION */
+
+  if (
+    query.includes("education") ||
+    query.includes("degree") ||
+    query.includes("university") ||
+    query.includes("studied")
+  ) {
+
+    return `
+      Cynthia holds a Bachelor of Science in Informatics
+      and Computer Science from Strathmore University,
+      completed in 2024.
+    `;
+
+  }
+
+
+  /* CONTACT */
+
+  if (
+    query.includes("contact") ||
+    query.includes("email") ||
+    query.includes("reach") ||
+    query.includes("linkedin") ||
+    query.includes("github")
+  ) {
+
+    return `
+      You can contact Cynthia by email at
+      Cynthiakirui24@gmail.com.
+      You can also connect with her on LinkedIn or
+      explore her work on GitHub.
+    `;
+
+  }
+
+
+  /* AVAILABILITY */
+
+  if (
+    query.includes("available") ||
+    query.includes("hire") ||
+    query.includes("opportunit") ||
+    query.includes("job")
+  ) {
+
+    return `
+      Cynthia is open to software engineering opportunities,
+      particularly roles involving software development,
+      full-stack development, web applications, backend
+      services and AI-enabled solutions.
+    `;
+
+  }
+
+
+  /* DEFAULT */
+
+  return `
+    I can help you learn more about Cynthia's background,
+    technical skills, experience, projects, education
+    and contact information.
+
+    Try asking:
+    "What are Cynthia's skills?"
+    "Tell me about her experience"
+    or
+    "How can I contact Cynthia?"
+  `;
+
+}
+
+
+/* ================================
+   SEND MESSAGE
+================================ */
+
+function sendChatMessage(question) {
+
+  const cleanQuestion =
+    question.trim();
+
+  if (!cleanQuestion) {
+    return;
+  }
+
+  addChatMessage(
+    cleanQuestion,
+    "user"
+  );
+
+  const response =
+    getPortfolioResponse(cleanQuestion);
+
+  setTimeout(() => {
+
+    addChatMessage(
+      response,
+      "assistant"
+    );
+
+  }, 350);
+
+}
+
+
+/* ================================
+   FORM SUBMISSION
+================================ */
+
+chatForm.addEventListener(
+  "submit",
+  (event) => {
+
+    event.preventDefault();
+
+    const question =
+      chatInput.value.trim();
+
+    if (!question) {
+      return;
+    }
+
+    sendChatMessage(question);
+
+    chatInput.value = "";
+
+  }
+);
+
+
+/* ================================
+   QUICK QUESTIONS
+================================ */
+
+quickQuestions.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    const question =
+      button.dataset.question;
+
+    sendChatMessage(question);
+
+  });
+
+});
+
+
+/* ================================
+   ESCAPE KEY
+================================ */
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (
+      event.key === "Escape" &&
+      chatWindow.classList.contains("active")
+    ) {
+
+      closeChat();
+
+    }
+
+  }
+);
   </script>
+  
 
 </body>
 
