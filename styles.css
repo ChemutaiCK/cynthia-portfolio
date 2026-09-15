@@ -613,6 +613,112 @@ strong {
   line-height: 1.75;
 }
 
+/* ================================
+   DEVELOPER CODE
+================================ */
+
+.developer-code {
+  width: 100%;
+  margin-top: 40px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background: #0d0008;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(255, 35, 143, 0.04);
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+
+  padding: 12px 18px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.code-header::before {
+  content: "●  ●  ●";
+
+  margin-right: 14px;
+
+  color: var(--pink-primary);
+
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+}
+
+.code-header span {
+  color: var(--text-muted);
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.72rem;
+}
+
+.developer-code pre {
+  margin: 0;
+  padding: 18px 22px;
+
+  overflow-x: auto;
+
+  color: var(--text-secondary);
+
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+.developer-code code {
+  font-family: inherit;
+}
+/* JAVASCRIPT SYNTAX COLORS */
+
+.developer-code .js-keyword {
+  color: #ff4fa3;
+}
+
+.developer-code .js-variable {
+  color: #f5f5f5;
+}
+
+.developer-code .js-property {
+  color: #9cdcfe;
+}
+
+.developer-code .js-string {
+  color: #ce9178;
+}
+
+.developer-code .js-boolean {
+  color: #569cd6;
+}
+
+.developer-code .js-number {
+  color: #b5cea8;
+}
+
+@media (max-width: 650px) {
+
+  .developer-code {
+    border-radius: 12px;
+  }
+
+  .developer-code pre {
+    padding: 18px;
+
+    font-size: 0.68rem;
+    line-height: 1.7;
+  }
+
+}
+
 
 .about-content {
   display: grid;
