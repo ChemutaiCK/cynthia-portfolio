@@ -1838,13 +1838,18 @@
 
   <!-- Chat Button -->
   <button
-    type="button"
-    id="chat-toggle"
-    class="chat-toggle"
-    aria-label="Open portfolio assistant"
+  type="button"
+  id="chat-toggle"
+  class="chat-toggle"
+  aria-label="Ask Cynthia"
+>
+  <img
+    src="./assets/eu.jpeg"
+    alt="Cynthia Kirui"
+    class="chat-toggle-photo"
   >
-    <i class="fa-solid fa-wand-magic-sparkles"></i>
-  </button>
+  <span>Ask Cynthia</span>
+</button>
 
 
   <!-- Chat Window -->
@@ -2595,7 +2600,24 @@ function getPortfolioResponse(question) {
 
 
   /* ABOUT */
+if (
+  query.includes("experience") ||
+  query.includes("work history") ||
+  query.includes("worked") ||
+  query.includes("career") ||
+  query.includes("employment")
+) {
 
+  return `
+    Cynthia currently works as a Junior Software Developer
+    at Prisma Kenya Ltd. Her previous experience includes
+    Software Engineering at Planate Management Group,
+    Software Development internships at Hela Capital Ltd
+    and Strathmore University, and IT Support experience
+    at East African Portland Cement PLC.
+  `;
+
+}
   if (
     query.includes("who is cynthia") ||
     query.includes("about cynthia") ||
