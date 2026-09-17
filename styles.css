@@ -885,7 +885,7 @@ strong {
 
   left: 50%;
 
-  width: 2px;
+  width: 3px;
 
   background:
     linear-gradient(
@@ -901,6 +901,7 @@ strong {
 
   box-shadow:
   0 0 12px rgba(255, 35, 143, 0.15);
+  
 }
 
 
@@ -966,7 +967,7 @@ strong {
 
 
 /* =========================================
-   HORIZONTAL CONNECTOR
+   HORIZONTAL CONNECTORS
 ========================================= */
 
 .education-line::before {
@@ -974,54 +975,60 @@ strong {
 
   position: absolute;
 
-  top: 50%;
-
-  width: 100%;
+  top: 0;
 
   height: 1px;
 
-  background:
-  linear-gradient(
-    to right,
-    rgba(255, 35, 143, 0.65),
-    rgba(255, 35, 143, 0.25)
-  );
+  width: 5%;
 
-  transform: translateY(-50%);
-}
-
-
-/* LEFT ITEM CONNECTOR */
-
-.education-item:nth-child(odd)
-.education-line::before {
-  left: 0;
-  
+  transform: none;
 
   background:
     linear-gradient(
       to right,
-      rgba(255, 35, 143, 0.25),
+      rgba(255, 35, 143, 0.2),
       rgba(255, 35, 143, 0.7)
     );
+
+  box-shadow:
+    0 0 6px rgba(255, 35, 143, 0.12);
 }
 
 
-/* RIGHT ITEM CONNECTOR */
+/* =========================================
+   LEFT CARD → CENTER
+========================================= */
 
-.education-item:nth-child(even)
+.education-item:nth-child(odd)
 .education-line::before {
-  right: 0;
-  
+
+  left: 45%;
 
   background:
     linear-gradient(
-      to left,
-      rgba(255, 35, 143, 0.25),
+      to right,
+      rgba(255, 35, 143, 0.2),
       rgba(255, 35, 143, 0.7)
     );
 }
 
+
+/* =========================================
+   RIGHT CARD → CENTER
+========================================= */
+
+.education-item:nth-child(even)
+.education-line::before {
+
+  left: 50%;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 35, 143, 0.7),
+      rgba(255, 35, 143, 0.2)
+    );
+}
 
 /* =========================================
    CENTER NODE
@@ -1049,12 +1056,11 @@ strong {
   transform: translate(-50%, -50%);
 
   box-shadow:
-  0 0 0 4px rgba(255, 35, 143, 0.08),
-  0 0 12px rgba(255, 35, 143, 0.65);
+    0 0 0 4px rgba(255, 35, 143, 0.08),
+    0 0 12px rgba(255, 35, 143, 0.65);
 
   transition: 0.3s ease;
 }
-
 
 /* =========================================
    CARD
