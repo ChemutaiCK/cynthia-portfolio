@@ -392,8 +392,17 @@ strong {
   align-items: center;
   justify-content: center;
 
-  overflow: hidden;
+  
   text-align: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 0, 5, 0.96) 0%,
+      rgba(8, 0, 5, 0.88) 45%,
+      rgba(8, 0, 5, 0.72) 100%
+    ),
+    url("./assets/me.png")  100% center /  35% auto no-repeat;
+
 }
 
 .hero::before {
