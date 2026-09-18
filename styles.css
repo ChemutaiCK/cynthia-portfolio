@@ -5880,3 +5880,223 @@ footer p {
 .showcase-project-card:hover .showcase-project-img {
   transform: scale(1.05);
 }
+
+/* =========================================================
+   QUOTE OF THE DAY
+   ========================================================= */
+
+.quote-section {
+  position: relative;
+  width: 100%;
+  margin-top: 60px;
+  padding: 25px 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: transparent;
+}
+
+
+/* =========================================================
+   VERY SUBTLE PINK GLOW
+   ========================================================= */
+
+.quote-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 150px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: rgba(255, 35, 143, 0.045);
+
+  filter: blur(80px);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   QUOTE CONTENT
+   ========================================================= */
+
+.quote-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(820px, 100%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   QUOTE MARK
+   ========================================================= */
+
+.quote-mark {
+  margin-bottom: 8px;
+
+  color: #ff5cad;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 40px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0 12px rgba(255, 35, 143, 0.30);
+}
+
+
+/* =========================================================
+   QUOTE
+   ========================================================= */
+
+.quote-content blockquote {
+  max-width: 900px;
+
+  margin: 0;
+
+  color: #ddd4da;
+
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+
+  line-height: 1.65;
+
+  transition:
+    opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   AUTHOR
+   ========================================================= */
+
+.quote-author {
+  margin-top: 16px;
+
+  color: #ff8bc4;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  text-shadow:
+    0 0 10px rgba(255, 35, 143, 0.15);
+
+  transition:
+    opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.quote-label {
+  margin-top: 22px;
+
+  color: #a15a7d;
+
+  font-size:  11px;
+  font-weight: 600;
+
+  letter-spacing: 1.6px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.quote-refresh {
+  width: 34px;
+  height: 34px;
+
+  margin-top: 9px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 35, 143, 0.16);
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #a15a7d;
+
+  font-size:  14px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.35s ease;
+}
+
+.quote-refresh:hover {
+  color: #ff8bc4;
+
+  border-color: rgba(255, 35, 143, 0.45);
+
+  box-shadow:
+    0 0 14px rgba(255, 35, 143, 0.16);
+
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .quote-section {
+    margin-top: 90px;
+    padding: 45px 18px 42px;
+  }
+
+  .quote-mark {
+    font-size: 34px;
+  }
+
+  .quote-content blockquote {
+    max-width: 360px;
+    font-size: 17px;
+  }
+
+  .quote-author {
+    margin-top: 13px;
+    font-size: 10px;
+  }
+
+  .quote-label {
+    margin-top: 18px;
+  }
+
+}

@@ -2016,9 +2016,47 @@
 
       </div>
 
+
+
+<!-- QUOTE OF THE DAY -->
+<section class="quote-section">
+
+    <div class="quote-content">
+
+    <div class="quote-mark">”</div>
+
+    <blockquote id="quote-text">
+      "Hardware: the parts of a computer that can be kicked."
+    </blockquote>
+
+    <div class="quote-author" id="quote-author">
+      Jeff Pesos
+    </div>
+
+    <div class="quote-label">
+      QUOTE OF THE DAY
+    </div>
+
+    <button
+      class="quote-refresh"
+      id="quote-refresh"
+      aria-label="Show another quote"
+      type="button"
+    >
+      <i class="fa-solid fa-rotate"></i>
+    </button>
+
+  </div>
+    
     </section>
 
   </main>
+
+
+
+
+
+
 
 
   <!-- FOOTER -->
@@ -3112,6 +3150,94 @@ document.addEventListener(
 );
   </script>
   
+  <script>
+  const quotes = [
+    {
+      text: "Hardware: the parts of a computer that can be kicked.",
+      author: "Jeff Pesos"
+    },
+    {
+      text: "Programs must be written for people to read, and only incidentally for machines to execute.",
+      author: "Harold Abelson"
+    },
+    {
+      text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+      author: "Martin Fowler"
+    },
+    {
+      text: "First, solve the problem. Then, write the code.",
+      author: "John Johnson"
+    },
+    {
+      text: "The best error message is the one that never shows up.",
+      author: "Thomas Fuchs"
+    },
+    {
+      text: "Talk is cheap. Show me the code.",
+      author: "Linus Torvalds"
+    },
+    {
+      text: "Simplicity is the soul of efficiency.",
+      author: "Austin Freeman"
+    },
+    {
+      text: "The computer was born to solve problems that did not exist before.",
+      author: "Bill Gates"
+    },
+    {
+      text: "Code is like humor. When you have to explain it, it's bad.",
+      author: "Cory House"
+    },
+    {
+      text: "Experience is the name everyone gives to their mistakes.",
+      author: "Oscar Wilde"
+    },
+    {
+      text: "The only way to learn a new programming language is by writing programs in it.",
+      author: "Dennis Ritchie"
+    },
+    {
+      text: "Great software is built by people who care about the details.",
+      author: "Unknown"
+    }
+  ];
+
+  const quoteText = document.getElementById("quote-text");
+  const quoteAuthor = document.getElementById("quote-author");
+  const refreshButton = document.getElementById("quote-refresh");
+
+  let currentQuote = -1;
+
+  function showRandomQuote() {
+    let newQuote;
+
+    do {
+      newQuote = Math.floor(Math.random() * quotes.length);
+    } while (newQuote === currentQuote && quotes.length > 1);
+
+    currentQuote = newQuote;
+
+    quoteText.style.opacity = "0";
+    quoteAuthor.style.opacity = "0";
+
+    setTimeout(() => {
+      quoteText.textContent = `"${quotes[currentQuote].text}"`;
+      quoteAuthor.textContent = quotes[currentQuote].author;
+
+      quoteText.style.opacity = "1";
+      quoteAuthor.style.opacity = "1";
+    }, 200);
+  }
+
+  // Show a quote when the page loads
+  showRandomQuote();
+
+  // Change quote when refresh button is clicked
+  refreshButton.addEventListener("click", showRandomQuote);
+
+  // Automatically change quote every 8 seconds
+  setInterval(showRandomQuote, 8000);
+</script>
 
 </body>
 
