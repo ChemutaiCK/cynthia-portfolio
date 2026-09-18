@@ -530,13 +530,15 @@ strong {
 .foto {
   position: relative;
   z-index: 3;
-
   width: 132px;
   height: 132px;
-
   border: 2px solid rgba(255, 160, 208, 0.8);
   border-radius: 50%;
-  object-fit: cover;
+
+  background-image: url("./assets/me.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 95% auto;
 
   box-shadow:
     0 0 0 8px rgba(255, 35, 143, 0.06),
