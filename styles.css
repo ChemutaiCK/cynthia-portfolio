@@ -161,6 +161,35 @@ strong {
 
   --pink-rgb: 255, 35, 143;
 }
+/* =========================================================
+   NAVIGATION ICONS
+========================================================= */
+
+.nav a {
+  gap: 7px;
+}
+
+.nav a i {
+  font-size: 0.7rem;
+  color: rgba(255, 155, 205, 0.65);
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.nav a:hover i {
+  color: var(--pink-secondary);
+  transform: translateY(-1px);
+  filter:
+    drop-shadow(0 0 5px rgba(255, 35, 143, 0.65));
+}
+
+.nav a.active i {
+  color: var(--pink-secondary);
+  filter:
+    drop-shadow(0 0 6px rgba(255, 35, 143, 0.7));
+}
 
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
 
