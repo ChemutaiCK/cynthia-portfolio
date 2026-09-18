@@ -1535,7 +1535,7 @@ strong {
   box-sizing: border-box;
 
   overflow: hidden;
-  padding: 90px 24px;
+  padding: 90px max(24px, calc((100% - 1200px) / 2));
   background:
     radial-gradient(circle at 12% 35%, rgba(255, 35, 143, 0.16), transparent 22%),
     radial-gradient(circle at 38% 55%, rgba(255, 35, 143, 0.10), transparent 20%),
@@ -1572,50 +1572,7 @@ strong {
 }
 
 
-/* =========================================================
-   SECTION HEADER
-   ========================================================= */
 
-.skills-section .section-header {
-  position: relative;
-  z-index: 2;
-  max-width: 850px;
-  margin: 0 auto 65px;
-  text-align: center;
-}
-
-.skills-section .section-label {
-  display: inline-block;
-  margin-bottom: 15px;
-
-  color: #ff5cad;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.skills-section .section-header h2 {
-  margin: 0;
-
-  color: #ffffff;
-  font-size: clamp(32px, 4vw, 52px);
-  line-height: 1.1;
-  font-weight: 700;
-}
-
-.skills-section .section-header h2 span {
-  color: #ff5cad;
-}
-
-.skills-section .section-header p {
-  max-width: 680px;
-  margin: 20px auto 0;
-
-  color: #858585;
-  font-size: 15px;
-  line-height: 1.7;
-}
 
 
 /* =========================================================
@@ -1850,6 +1807,10 @@ strong {
   color: #FE2857;
 }
 
+
+
+
+
 /* =========================================================
    LANGUAGES
    ========================================================= */
@@ -1982,65 +1943,549 @@ strong {
 
 
 /* =========================================================
-   ADDITIONAL SKILLS
-   ========================================================= */
+   ADDITIONAL SKILLS — ONLY
+========================================================= */
 
 .additional-skills {
   position: relative;
   z-index: 2;
-
+  width: 100%;
   max-width: 1200px;
-  margin: 65px auto 0;
-  padding-top: 28px;
-
-  border-top: 1px solid rgba(255, 35, 143, 0.14);
+  margin: 70px auto 0;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 35, 143, 0.12);
 }
 
+/* LABEL */
 .additional-skills-label {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 22px;
 
-  margin-bottom: 18px;
-
-  color: #a15a7d;
-
-  font-size: 11px;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   text-align: center;
 }
 
+/* SIDE ACCENTS */
+.additional-skills-label::before,
+.additional-skills-label::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 35, 143, 0.55)
+  );
+}
+
+.additional-skills-label::after {
+  background: linear-gradient(
+    to left,
+    transparent,
+    rgba(255, 35, 143, 0.55)
+  );
+}
+
+/* SKILL LIST */
 .additional-skills-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 9px;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
+/* INDIVIDUAL ADDITIONAL SKILL */
 .additional-skill {
-  padding: 8px 13px;
+  position: relative;
 
-  border: 1px solid rgba(255, 35, 143, 0.20);
-  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  background: rgba(18, 5, 13, 0.75);
+  min-height: 36px;
+  padding: 8px 14px;
 
-  color: #8f7f87;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9px;
 
+  background: rgba(255, 255, 255, 0.025);
+
+  color: rgba(255, 255, 255, 0.52);
+
+  font-family: "Inter", sans-serif;
   font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+
+  white-space: nowrap;
 
   transition:
-    border-color 0.25s ease,
+    transform 0.25s ease,
     color 0.25s ease,
-    background 0.25s ease;
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+/* SMALL PINK INDICATOR */
+.additional-skill::before {
+  content: "";
+
+  width: 4px;
+  height: 4px;
+
+  margin-right: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255, 92, 173, 0.55);
+
+  box-shadow:
+    0 0 7px rgba(255, 35, 143, 0.25);
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* HOVER */
 .additional-skill:hover {
-  border-color: rgba(255, 35, 143, 0.48);
+  transform: translateY(-3px);
 
-  background: rgba(45, 8, 28, 0.7);
+  border-color: rgba(255, 35, 143, 0.42);
 
-  color: #ffb3d5;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 35, 143, 0.09),
+      rgba(255, 35, 143, 0.025)
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(255, 35, 143, 0.08);
+}
+
+.additional-skill:hover::before {
+  background: #ff5cad;
+
+  box-shadow:
+    0 0 9px rgba(255, 35, 143, 0.7);
+
+  transform: scale(1.2);
+}
+
+/* =========================================================
+   ENGINEERING PRACTICES + AI
+   PREMIUM HORIZONTAL LAYOUT
+   ========================================================= */
+
+.skill-category-compact {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  display: grid;
+
+  grid-template-columns: 260px minmax(0, 1fr);
+
+  align-items: start;
+
+  column-gap: 70px;
+
+  padding: 28px 0;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   LEFT — CATEGORY INFORMATION
+   ========================================================= */
+
+.skill-category-compact .skill-category-header {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: flex-start;
+
+  gap: 10px;
+
+  margin: 0;
+
+  padding-top: 5px;
+
+  text-align: left;
+}
+
+
+/* NUMBER */
+
+.skill-category-compact
+.skill-category-header > div > span {
+  display: block;
+
+  margin: 0;
+
+  color: rgba(255, 35, 143, 0.65);
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 0.65rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+
+/* TITLE */
+
+.skill-category-compact
+.skill-category-header h3 {
+  margin: 0;
+
+  max-width: 230px;
+
+  color: #ffffff;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 1.35rem;
+
+  font-weight: 600;
+
+  line-height: 1.25;
+}
+
+
+/* SMALL ACCENT LINE */
+
+.skill-category-compact
+.skill-category-header::after {
+  content: "";
+
+  width: 34px;
+  height: 2px;
+
+  margin-top: 5px;
+
+  background:
+    linear-gradient(
+      to right,
+      #ff238f,
+      rgba(255,35,143,0)
+    );
+
+  box-shadow:
+    0 0 12px rgba(255,35,143,0.35);
+}
+
+
+/* HIDE THE LARGE ICON */
+
+.skill-category-compact
+.skill-category-header > i {
+  display: none;
+}
+
+
+/* =========================================================
+   RIGHT — SKILL COLLECTION
+   ========================================================= */
+
+
+/* =========================================================
+   RIGHT SIDE — SINGLE HORIZONTAL ROW
+   ========================================================= */
+.skill-category-compact .skills {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: row;
+
+  flex-wrap: wrap;
+
+  align-items: stretch;
+
+  justify-content: flex-start;
+
+  gap: 12px;
+
+  margin: 0;
+
+  padding: 0;
+
+  overflow: visible;
+
+  background: transparent;
+
+  border: none;
+
+  box-shadow: none;
+}
+
+
+/* HIDE SCROLLBAR */
+
+.skill-category-compact .skills::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   INDIVIDUAL SKILL BOX
+   ========================================================= */
+
+.skill-category-compact .skill {
+  flex: 0 0 auto;
+
+  width: auto;
+
+  min-height: 48px;
+
+  display: inline-flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 0.68rem;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ICON */
+
+.skill-category-compact .skill > i {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ff5cad;
+
+  font-size: 0.85rem;
+
+  box-shadow: none;
+}
+
+
+/* HOVER */
+
+.skill-category-compact .skill:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(255, 35, 143, 0.38);
+
+  background:
+    rgba(255, 35, 143, 0.055);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(255, 35, 143, 0.08);
+}
+
+.skill-category-compact .skill:hover > i {
+  transform: scale(1.1);
+
+  color: #ff8bc4;
+
+  filter:
+    drop-shadow(0 0 6px rgba(255,35,143,0.45));
+}
+
+
+
+
+/* =========================================================
+   INDIVIDUAL SKILL
+   ========================================================= */
+
+.skill-category-compact .skill {
+  width: auto;
+
+  min-height: 48px;
+
+  display: inline-flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 9px;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 0.68rem;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  text-align: left;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.skill-category-compact .skill > i {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ff5cad;
+
+  font-size: 0.85rem;
+
+  box-shadow: none;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.skill-category-compact .skill:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(255, 35, 143, 0.38);
+
+  background:
+    rgba(255, 35, 143, 0.055);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(255, 35, 143, 0.08);
+}
+
+
+.skill-category-compact .skill:hover > i {
+  transform: scale(1.1);
+
+  color: #ff8bc4;
+
+  filter:
+    drop-shadow(0 0 6px rgba(255,35,143,0.45));
+}
+
+
+/* =========================================================
+   SUBTLE SEPARATOR
+   ========================================================= */
+
+.skill-category-compact + .skill-category-compact {
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
 }
 
 
@@ -2048,11 +2493,46 @@ strong {
    TABLET
    ========================================================= */
 
-@media (max-width: 1050px) {
+@media (max-width: 1000px) {
 
-  .skills-categories {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 45px 20px;
+  .skill-category-compact {
+    grid-template-columns: 210px minmax(0, 1fr);
+
+    column-gap: 40px;
+  }
+
+  .skill-category-compact
+  .skill-category-header h3 {
+    font-size: 1.15rem;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .skill-category-compact {
+    grid-template-columns: 1fr;
+
+    row-gap: 22px;
+
+    padding: 30px 0;
+  }
+
+  .skill-category-compact
+  .skill-category-header {
+    padding-top: 0;
+  }
+
+  .skill-category-compact
+  .skill-category-header h3 {
+    max-width: none;
+
+    font-size: 1.15rem;
   }
 
 }
@@ -2062,55 +2542,31 @@ strong {
    MOBILE
    ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 500px) {
 
-  .skills-section {
-    padding: 70px 18px;
+  .skill-category-compact {
+    padding: 25px 0;
+
+    row-gap: 18px;
   }
 
-  .skills-section .section-header {
-    margin-bottom: 45px;
-  }
-
-  .skills-categories {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px 14px;
-  }
-
-  .skill-category-header h3 {
-    font-size: 14px;
-  }
-
-  .skills {
+  .skill-category-compact .skills {
     gap: 8px;
   }
 
-  .skill {
-    min-height: 55px;
-    font-size: 9px;
+  .skill-category-compact .skill {
+    min-height: 44px;
+
+    padding: 8px 11px;
+
+    font-size: 0.62rem;
   }
 
-  .skill i {
-    font-size: 18px;
-  }
+  .skill-category-compact .skill > i {
+    width: 21px;
+    height: 21px;
 
-}
-
-
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 430px) {
-
-  .skills-categories {
-    grid-template-columns: 1fr;
-    gap: 38px;
-  }
-
-  .skills {
-    max-width: 270px;
-    margin: 0 auto;
+    font-size: 0.78rem;
   }
 
 }
