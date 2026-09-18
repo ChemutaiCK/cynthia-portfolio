@@ -1790,7 +1790,65 @@ strong {
     transform 0.25s ease,
     text-shadow 0.25s ease;
 }
+/* =========================================================
+   DEVICON BRAND COLORS
+   ========================================================= */
 
+.skill .devicon-typescript-original {
+  color: #3178C6;
+}
+
+.skill .devicon-cplusplus-plain {
+  color: #00599C;
+}
+
+.skill .devicon-vitejs-plain {
+  color: #646CFF;
+}
+
+.skill .devicon-tailwindcss-original {
+  color: #06B6D4;
+}
+
+.skill .devicon-django-plain {
+  color: #092E20;
+}
+
+.skill .devicon-sqlalchemy-plain {
+  color: #D71F00;
+}
+
+.skill .devicon-postgresql-plain {
+  color: #4169E1;
+}
+
+.skill .devicon-mysql-plain {
+  color: #4479A1;
+}
+
+.skill .devicon-sqlite-plain {
+  color: #003B57;
+}
+
+.skill .devicon-mongodb-plain {
+  color: #47A248;
+}
+
+.skill .devicon-githubactions-plain {
+  color: #2088FF;
+}
+
+.skill .devicon-vscode-plain {
+  color: #007ACC;
+}
+
+.skill .devicon-pycharm-plain {
+  color: #21D789;
+}
+
+.skill .devicon-intellij-plain {
+  color: #FE2857;
+}
 
 /* =========================================================
    LANGUAGES
