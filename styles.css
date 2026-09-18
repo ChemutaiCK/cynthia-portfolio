@@ -545,22 +545,6 @@ strong {
 
 
 
-.cargo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  color: var(--pink-secondary);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 4px;
-}
-
-.cargo span {
-  width: 20px;
-  height: 1px;
-  background: var(--pink-primary);
-}
 
 .typing {
   margin-top: 14px;
@@ -6100,3 +6084,149 @@ footer p {
   }
 
 }
+
+
+/* =========================================================
+   DYNAMIC ROLE — TYPEWRITER
+========================================================= */
+
+.cargo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  color: var(--pink-secondary);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.cargo .article {
+  color: var(--pink-secondary);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ROLE WRAPPER
+========================================================= */
+
+.cargo .role-wrapper {
+  display: inline-flex;
+  align-items: center;
+
+  color: var(--pink-primary);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+
+  text-shadow:
+    0 0 10px rgba(255, 35, 143, 0.3),
+    0 0 22px rgba(255, 35, 143, 0.12);
+}
+
+
+/* =========================================================
+   TYPED ROLE
+========================================================= */
+
+.cargo .dynamic-role {
+  display: inline-block;
+
+  min-width: 1ch;
+
+  color: var(--pink-primary);
+  font-size: 18px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TYPEWRITER CURSOR
+========================================================= */
+
+.cargo .dynamic-role::after {
+  display: inline-block;
+
+  width: 2px;
+  height: 1.05em;
+
+  margin-left: 5px;
+
+  content: "";
+
+  vertical-align: -0.12em;
+
+  border-radius: 2px;
+
+  background: var(--pink-primary);
+
+  box-shadow:
+    0 0 7px rgba(255, 35, 143, 0.9),
+    0 0 14px rgba(255, 35, 143, 0.45);
+
+  animation: typewriterCursor 0.8s steps(1) infinite;
+}
+
+
+/* =========================================================
+   CURSOR BLINK
+========================================================= */
+
+@keyframes typewriterCursor {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .cargo {
+    font-size: 16px;
+    gap: 6px;
+  }
+
+  .cargo .article,
+  .cargo .role-wrapper,
+  .cargo .dynamic-role {
+    font-size: 16px;
+  }
+
+  .cargo .dynamic-role::after {
+    height: 1em;
+    margin-left: 4px;
+  }
+}
+
+/* =========================================================
+   DYNAMIC INTRO TEXT
+========================================================= */
+
+.cargo .intro-text {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cargo .article {
+  color: #ffffff;
+  font-weight: 600;
+}
+

@@ -94,11 +94,18 @@
 
         </div>
 
-        <p class="cargo">
-          <span></span>
-          SOFTWARE ENGINEER & FULL-STACK DEVELOPER
-          <span></span>
-        </p>
+       
+<p class="cargo">
+  <span class="intro-text">I'm</span>
+
+  <span class="article" id="dynamic-article">a</span>
+
+  <span class="role-wrapper">
+    &lt;<span class="dynamic-role" id="dynamic-role">Software Engineer</span> /&gt;
+  </span>
+</p>
+
+
 
         <h1 class="typing">
           Cynthia C. Kirui
@@ -3238,6 +3245,171 @@ document.addEventListener(
   // Automatically change quote every 8 seconds
   setInterval(showRandomQuote, 8000);
 </script>
+    
+
+<!-- Title Role Animation -->
+<script>
+
+/* =========================================================
+   DYNAMIC ROLE — TYPEWRITER ANIMATION
+========================================================= */
+
+const roles = [
+  "AI/ML Developer",
+  "Software Engineer",
+  "Full-Stack Developer",
+  "API Developer",
+  "Software Developer",
+  "Frontend Engineer",
+  "Backend Developer",
+  "Web Application Developer",
+  
+  "Systems Developer",
+  "Software Solutions Developer"
+];
+
+const dynamicRole = document.getElementById("dynamic-role");
+const dynamicArticle = document.getElementById("dynamic-article");
+
+let roleIndex = 0;
+let characterIndex = 0;
+let isDeleting = false;
+
+const typingSpeed = 75;
+const deletingSpeed = 45;
+const pauseAfterTyping = 1800;
+const pauseAfterDeleting = 400;
+
+
+/* =========================================================
+   SET ARTICLE — A / AN
+========================================================= */
+
+function updateArticle(role) {
+
+  const firstLetter = role
+    .trim()
+    .charAt(0)
+    .toLowerCase();
+
+  /*
+    Vowel sounds for the roles in the list.
+    AI is pronounced "ay-eye", so it uses "an".
+  */
+
+  const useAn =
+    ["a", "e", "i", "o", "u"].includes(firstLetter);
+
+  dynamicArticle.textContent = useAn ? "an" : "a";
+}
+
+
+/* =========================================================
+   TYPEWRITER
+========================================================= */
+
+function typeRole() {
+
+  const currentRole = roles[roleIndex];
+
+  /* Update a / an whenever the role changes */
+  updateArticle(currentRole);
+
+
+  /* =======================================================
+     TYPING
+  ======================================================= */
+
+  if (!isDeleting) {
+
+    characterIndex++;
+
+    dynamicRole.textContent =
+      currentRole.substring(
+        0,
+        characterIndex
+      );
+
+    if (characterIndex >= currentRole.length) {
+
+      setTimeout(() => {
+
+        isDeleting = true;
+
+        typeRole();
+
+      }, pauseAfterTyping);
+
+      return;
+    }
+
+    setTimeout(
+      typeRole,
+      typingSpeed
+    );
+
+    return;
+  }
+
+
+  /* =======================================================
+     DELETING
+  ======================================================= */
+
+  characterIndex--;
+
+  dynamicRole.textContent =
+    currentRole.substring(
+      0,
+      characterIndex
+    );
+
+  if (characterIndex <= 0) {
+
+    characterIndex = 0;
+
+    isDeleting = false;
+
+    roleIndex++;
+
+    if (roleIndex >= roles.length) {
+      roleIndex = 0;
+    }
+
+    setTimeout(
+      typeRole,
+      pauseAfterDeleting
+    );
+
+    return;
+  }
+
+  setTimeout(
+    typeRole,
+    deletingSpeed
+  );
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+if (dynamicRole && dynamicArticle) {
+
+  dynamicRole.textContent = "";
+
+  updateArticle(roles[roleIndex]);
+
+  setTimeout(
+    typeRole,
+    500
+  );
+}
+
+</script>
+
+
 
 </body>
 
