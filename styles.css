@@ -1522,787 +1522,537 @@ strong {
   color: rgba(255, 35, 143, 0.7);
 }
 
-
-/* =========================================
-   SKILLS SECTION
-========================================= */
+/* =========================================================
+   SKILLS SECTION — REFERENCE STYLE
+   ========================================================= */
 
 .skills-section {
-  position: relative;
-  max-width: 100%;
-
-  padding-right: max(24px, calc((100% - 1192px) / 2));
-  padding-left: max(24px, calc((100% - 1192px) / 2));
+   position: relative;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
 
   overflow: hidden;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.035);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
-
+  padding: 90px 24px;
   background:
-    radial-gradient(
-      circle at 8% 35%,
-      rgba(255, 35, 143, 0.055),
-      transparent 24%
-    ),
-    radial-gradient(
-      circle at 50% 25%,
-      rgba(255, 35, 143, 0.035),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 92% 55%,
-      rgba(255, 35, 143, 0.05),
-      transparent 24%
-    ),
-    rgba(0, 0, 0, 0.15);
+    radial-gradient(circle at 12% 35%, rgba(255, 35, 143, 0.16), transparent 22%),
+    radial-gradient(circle at 38% 55%, rgba(255, 35, 143, 0.10), transparent 20%),
+    radial-gradient(circle at 66% 30%, rgba(255, 35, 143, 0.14), transparent 23%),
+    radial-gradient(circle at 88% 55%, rgba(255, 35, 143, 0.10), transparent 22%),
+    #020207;
+}
 
-  /* Centralized color token — change once, updates every rgba() below. */
-  --pink-rgb: 255, 35, 143;
+/* Subtle glowing atmosphere */
+.skills-section::before,
+.skills-section::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+}
+
+.skills-section::before {
+  width: 350px;
+  height: 350px;
+  top: 100px;
+  left: 8%;
+  background: rgba(255, 35, 143, 0.12);
+}
+
+.skills-section::after {
+  width: 300px;
+  height: 300px;
+  right: 8%;
+  bottom: 100px;
+  background: rgba(255, 35, 143, 0.09);
 }
 
 
-/* =========================================
-   SKILLS CATEGORIES
-   Centered flex-wrap instead of a fixed 5-column grid —
-   any number of categories reflows cleanly, and a partial
-   last row centers instead of stretching full-width.
-========================================= */
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.skills-section .section-header {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.skills-section .section-label {
+  display: inline-block;
+  margin-bottom: 15px;
+
+  color: #ff5cad;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.skills-section .section-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.skills-section .section-header h2 span {
+  color: #ff5cad;
+}
+
+.skills-section .section-header p {
+  max-width: 680px;
+  margin: 20px auto 0;
+
+  color: #858585;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CATEGORY GRID
+   ========================================================= */
 
 .skills-categories {
   position: relative;
-
-  display: flex;
-  flex-wrap: wrap;
-
-  justify-content: center;
-
-  gap: 54px 42px;
-
-  margin-top: 62px;
-  padding-bottom: 28px;
-}
-
-
-/* =========================================
-   BACKGROUND ATMOSPHERE
-========================================= */
-
-.skills-categories::before {
-  content: "";
-
-  position: absolute;
-
-  top: 5px;
-  left: 0;
+  z-index: 2;
 
   width: 100%;
-  height: 300px;
+  max-width: 1200px;
+  margin: 0 auto;
 
-  background:
-    radial-gradient(
-      circle at 10% 50%,
-      rgba(var(--pink-rgb), 0.12),
-      transparent 17%
-    ),
-    radial-gradient(
-      circle at 30% 35%,
-      rgba(var(--pink-rgb), 0.07),
-      transparent 18%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(var(--pink-rgb), 0.055),
-      transparent 18%
-    ),
-    radial-gradient(
-      circle at 70% 35%,
-      rgba(var(--pink-rgb), 0.07),
-      transparent 18%
-    ),
-    radial-gradient(
-      circle at 90% 50%,
-      rgba(var(--pink-rgb), 0.10),
-      transparent 17%
-    );
-
-  filter: blur(38px);
-
-  opacity: 0.7;
-
-  pointer-events: none;
-
-  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 55px 24px;
 }
 
 
-/* =========================================
+/* =========================================================
    CATEGORY
-========================================= */
+   ========================================================= */
 
 .skill-category {
-  position: relative;
-
-  z-index: 1;
-
-  flex: 1 1 190px;
-  max-width: 220px;
-
-  padding: 0 7px;
-
-  background: transparent;
-
-  border: none;
-
-  box-shadow: none;
-}
-
-
-/* =========================================
-   CATEGORY HEADER
-========================================= */
-
-.skill-category-header {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  min-height: 58px;
-
-  margin-bottom: 36px;
-
+  min-width: 0;
   text-align: center;
 }
 
 
-/* =========================================
-   CATEGORY HEADER ICON
-   (generic per-category icon, not a tech logo — Font Awesome stays here)
-========================================= */
+/* =========================================================
+   CATEGORY HEADER
+   ========================================================= */
+
+.skill-category-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 22px;
+}
 
 .skill-category-header > i {
-  margin-bottom: 12px;
-
-  color: rgba(255, 92, 173, 0.72);
-
-  font-size: 0.85rem;
-
-  filter: drop-shadow(0 0 7px rgba(var(--pink-rgb), 0.25));
-
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease,
-    filter 0.3s ease;
+  display: none;
 }
 
-
-/* =========================================
-   CATEGORY NUMBER
-========================================= */
+.skill-category-header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .skill-category-header span {
-  display: block;
-
   margin-bottom: 5px;
 
-  color: rgba(255, 255, 255, 0.24);
-
-  font-family: "Space Grotesk", sans-serif;
-
-  font-size: 0.56rem;
-
-  font-weight: 700;
-
-  letter-spacing: 0.16em;
-
-  line-height: 1;
+  color: #a34d78;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
-
-
-/* =========================================
-   CATEGORY TITLE
-========================================= */
 
 .skill-category-header h3 {
-  position: relative;
-
   margin: 0;
 
-  color: #ffffff;
-
-  font-family: "Space Grotesk", sans-serif;
-
-  font-size: 0.92rem;
-
-  font-weight: 600;
-
-  letter-spacing: 0.01em;
-
-  line-height: 1.3;
+  color: #ff8bc4;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 
-/* =========================================
-   TITLE ACCENT
-========================================= */
-
-.skill-category-header h3::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: -11px;
-
-  width: 24px;
-  height: 1px;
-
-  background:
-    linear-gradient(
-      to right,
-      transparent,
-      var(--pink-primary, rgb(var(--pink-rgb))),
-      transparent
-    );
-
-  transform: translateX(-50%);
-
-  box-shadow: 0 0 8px rgba(var(--pink-rgb), 0.55);
-
-  transition:
-    width 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-
-/* =========================================
-   CATEGORY HOVER
-========================================= */
-
-.skill-category:hover .skill-category-header > i {
-  color: var(--pink-secondary, rgb(var(--pink-rgb)));
-
-  transform: translateY(-2px);
-
-  filter: drop-shadow(0 0 8px rgba(var(--pink-rgb), 0.6));
-}
-
-.skill-category:hover .skill-category-header h3::after {
-  width: 42px;
-
-  box-shadow: 0 0 12px rgba(var(--pink-rgb), 0.75);
-}
-
-
-/* =========================================
-   SKILLS GRID (icons inside a category)
-========================================= */
+/* =========================================================
+   SKILL GRID
+   ========================================================= */
 
 .skills {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 
-  column-gap: 20px;
-  row-gap: 29px;
-
-  justify-items: center;
+  width: 100%;
 }
 
 
-/* =========================================
-   INDIVIDUAL SKILL
-========================================= */
+/* =========================================================
+   INDIVIDUAL SKILL CARD
+   ========================================================= */
 
 .skill {
   position: relative;
 
-  width: 100%;
+  min-height: 58px;
+  padding: 9px 6px;
 
   display: flex;
-
   flex-direction: column;
-
-  align-items: center;
-
-  justify-content: flex-start;
-
-  gap: 9px;
-
-  padding: 0;
-
-  background: transparent;
-
-  border: none;
-
-  color: rgba(255, 255, 255, 0.55);
-
-  font-family: "Inter", sans-serif;
-
-  font-size: 0.61rem;
-
-  font-weight: 500;
-
-  line-height: 1.3;
-
-  text-align: center;
-
-  cursor: default;
-
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
-}
-
-
-/* =========================================
-   ICON BOX
-   Works for both Font Awesome (<i class="fa-...">) and
-   Devicon (<i class="devicon-...-plain">) — both are icon
-   fonts that respect `color`, so sizing/hover logic is shared.
-========================================= */
-
-.skill i {
-  position: relative;
-
-  width: 57px;
-  height: 57px;
-
-  display: flex;
-
   align-items: center;
   justify-content: center;
 
-  flex-shrink: 0;
+  gap: 6px;
 
-  border: 1px solid rgba(var(--pink-rgb), 0.14);
-
-  border-radius: 12px;
+  border: 1px solid rgba(255, 35, 143, 0.22);
+  border-radius: 10px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.04),
-      rgba(255, 255, 255, 0.008)
+      rgba(18, 11, 18, 0.95),
+      rgba(5, 3, 8, 0.96)
     );
 
-  color: rgba(255, 92, 173, 0.78);
+  color: #b8aeb4;
 
-  font-size: 1.65rem;
-
-  line-height: 1;
-
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
 
   transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease;
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
 }
 
 
-/* =========================================
-   ICON INNER GLOW
-========================================= */
-
-.skill i::after {
+/* Top subtle shine */
+.skill::before {
   content: "";
-
   position: absolute;
-
   inset: 0;
 
   border-radius: inherit;
 
   background:
-    radial-gradient(
-      circle at center,
-      rgba(var(--pink-rgb), 0.10),
-      transparent 65%
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.04),
+      transparent 40%
     );
-
-  opacity: 0;
-
-  transition: opacity 0.3s ease;
 
   pointer-events: none;
 }
 
 
-/* =========================================
-   TECHNOLOGY NAME
-========================================= */
+/* =========================================================
+   SKILL ICON
+   ========================================================= */
 
-.skill span {
-  display: block;
+/* =========================================================
+   SKILL ICONS — BRAND COLORS
+   ========================================================= */
 
-  max-width: 88px;
+.skill i {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
 
-  color: rgba(255, 255, 255, 0.56);
+  /* Each icon gets its own color below */
+  font-size: 20px;
 
-  transition: color 0.3s ease;
+  text-shadow:
+    0 0 10px rgba(255, 35, 143, 0.40);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    text-shadow 0.25s ease;
 }
 
 
-/* =========================================
-   SKILL HOVER
-========================================= */
+/* =========================================================
+   LANGUAGES
+   ========================================================= */
+
+/* JavaScript */
+.skill i.fa-js {
+  color: #F7DF1E;
+}
+
+/* Python */
+.skill i.fa-python {
+  color: #3776AB;
+}
+
+/* PHP */
+.skill i.fa-php {
+  color: #777BB4;
+}
+
+
+/* =========================================================
+   FRONTEND
+   ========================================================= */
+
+/* HTML5 */
+.skill i.fa-html5 {
+  color: #E34F26;
+}
+
+/* CSS3 */
+.skill i.fa-css3-alt {
+  color: #1572B6;
+}
+
+/* React */
+.skill i.fa-react {
+  color: #61DAFB;
+}
+
+/* Vue */
+.skill i.fa-vuejs {
+  color: #42B883;
+}
+
+
+/* =========================================================
+   BACKEND & APIs
+   ========================================================= */
+
+/* Node.js */
+.skill i.fa-node-js {
+  color: #339933;
+}
+
+/* Laravel */
+.skill i.fa-laravel {
+  color: #FF2D20;
+}
+
+/* Flask */
+.skill i.fa-flask {
+  color: #FFFFFF;
+}
+
+
+/* =========================================================
+   DATABASES
+   ========================================================= */
+
+/* MongoDB */
+.skill i.fa-leaf {
+  color: #47A248;
+}
+
+
+/* =========================================================
+   TOOLS & DEVOPS
+   ========================================================= */
+
+/* Git */
+.skill i.fa-git-alt {
+  color: #F05032;
+}
+
+/* GitHub */
+.skill i.fa-github {
+  color: #FFFFFF;
+}
+
+/* Docker */
+.skill i.fa-docker {
+  color: #2496ED;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.skill:hover i {
+  transform: scale(1.12);
+  text-shadow: 0 0 14px currentColor;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
 
 .skill:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+
+  border-color: rgba(255, 35, 143, 0.68);
+
+  box-shadow:
+    0 0 18px rgba(255, 35, 143, 0.16),
+    inset 0 0 15px rgba(255, 35, 143, 0.05);
 
   color: #ffffff;
 }
 
 .skill:hover i {
-  border-color: rgba(var(--pink-rgb), 0.62);
+  color: #ff8bc4;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(var(--pink-rgb), 0.10),
-      rgba(var(--pink-rgb), 0.025)
-    );
+  transform: scale(1.08);
 
-  color: var(--pink-secondary, rgb(var(--pink-rgb)));
-
-  box-shadow:
-    0 0 14px rgba(var(--pink-rgb), 0.20),
-    0 0 30px rgba(var(--pink-rgb), 0.10),
-    inset 0 0 16px rgba(var(--pink-rgb), 0.045);
-
-  transform: scale(1.07);
-}
-
-.skill:hover i::after {
-  opacity: 1;
-}
-
-.skill:hover span {
-  color: #ffffff;
+  text-shadow:
+    0 0 14px rgba(255, 35, 143, 0.72);
 }
 
 
-/* =========================================
+/* =========================================================
    ADDITIONAL SKILLS
-========================================= */
+   ========================================================= */
 
 .additional-skills {
   position: relative;
+  z-index: 2;
 
-  margin-top: 25px;
+  max-width: 1200px;
+  margin: 65px auto 0;
+  padding-top: 28px;
 
-  padding: 25px 28px;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.055);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(var(--pink-rgb), 0.025),
-      rgba(255, 255, 255, 0.012),
-      rgba(var(--pink-rgb), 0.025)
-    );
-
-  overflow: hidden;
+  border-top: 1px solid rgba(255, 35, 143, 0.14);
 }
 
-/* LEFT ACCENT */
-.additional-skills::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 3px;
-  height: 100%;
-
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      var(--pink-primary, rgb(var(--pink-rgb))),
-      transparent
-    );
-}
-
-/* LABEL */
 .additional-skills-label {
   display: block;
 
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 
-  color: rgba(255, 255, 255, 0.4);
+  color: #a15a7d;
 
-  font-family: "Space Grotesk", sans-serif;
-
-  font-size: 0.62rem;
-
-  font-weight: 700;
-
-  letter-spacing: 0.14em;
-
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  text-align: center;
 }
 
-/* LIST */
 .additional-skills-list {
   display: flex;
-
   flex-wrap: wrap;
-
+  justify-content: center;
   gap: 9px;
 }
 
-/* PILL */
 .additional-skill {
-  display: inline-flex;
+  padding: 8px 13px;
 
-  align-items: center;
+  border: 1px solid rgba(255, 35, 143, 0.20);
+  border-radius: 6px;
 
-  min-height: 31px;
+  background: rgba(18, 5, 13, 0.75);
 
-  padding: 7px 11px;
+  color: #8f7f87;
 
-  border: 1px solid rgba(255, 255, 255, 0.045);
-
-  border-radius: 7px;
-
-  background: rgba(255, 255, 255, 0.018);
-
-  color: rgba(255, 255, 255, 0.52);
-
-  font-family: "Inter", sans-serif;
-
-  font-size: 0.64rem;
-
-  font-weight: 500;
+  font-size: 10px;
 
   transition:
-    color 0.25s ease,
     border-color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
+    color 0.25s ease,
+    background 0.25s ease;
 }
 
 .additional-skill:hover {
-  transform: translateY(-2px);
+  border-color: rgba(255, 35, 143, 0.48);
 
-  border-color: rgba(var(--pink-rgb), 0.28);
+  background: rgba(45, 8, 28, 0.7);
 
-  background: rgba(var(--pink-rgb), 0.045);
-
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffb3d5;
 }
 
 
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+   ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1050px) {
 
   .skills-categories {
-    gap: 50px 34px;
-  }
-
-  .skill-category {
-    flex-basis: 150px;
-    max-width: 180px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 45px 20px;
   }
 
 }
 
 
-/* =========================================
-   SMALL TABLET
-========================================= */
-
-@media (max-width: 800px) {
-
-  .skills-categories {
-    gap: 50px 36px;
-
-    margin-top: 50px;
-  }
-
-  .skill-category {
-    flex-basis: 150px;
-    max-width: 200px;
-  }
-
-  .skill-category-header {
-    margin-bottom: 32px;
-  }
-
-}
-
-
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+   ========================================================= */
 
-@media (max-width: 520px) {
+@media (max-width: 700px) {
 
   .skills-section {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 70px 18px;
+  }
+
+  .skills-section .section-header {
+    margin-bottom: 45px;
   }
 
   .skills-categories {
-    gap: 44px 24px;
-
-    margin-top: 45px;
-  }
-
-  .skill-category {
-    flex-basis: 44%;
-    max-width: 48%;
-
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-
-  .skill-category-header {
-    min-height: 52px;
-
-    margin-bottom: 28px;
-  }
-
-  .skill-category-header > i {
-    margin-bottom: 9px;
-
-    font-size: 0.76rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 14px;
   }
 
   .skill-category-header h3 {
-    font-size: 0.80rem;
-  }
-
-  .skill-category-header span {
-    font-size: 0.52rem;
+    font-size: 14px;
   }
 
   .skills {
-    column-gap: 13px;
-    row-gap: 25px;
+    gap: 8px;
   }
 
   .skill {
-    font-size: 0.56rem;
+    min-height: 55px;
+    font-size: 9px;
   }
 
   .skill i {
-    width: 51px;
-    height: 51px;
-
-    border-radius: 10px;
-
-    font-size: 1.42rem;
-  }
-
-  .skill span {
-    max-width: 76px;
-  }
-
-  .additional-skills {
-    margin-top: 18px;
-
-    padding: 21px 20px;
-  }
-
-  .additional-skills-label {
-    margin-bottom: 13px;
-
-    font-size: 0.58rem;
-  }
-
-  .additional-skills-list {
-    gap: 7px;
-  }
-
-  .additional-skill {
-    min-height: 29px;
-
-    padding: 6px 9px;
-
-    font-size: 0.59rem;
+    font-size: 18px;
   }
 
 }
 
 
-/* =========================================
-   SMALL MOBILE
-========================================= */
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 430px) {
 
   .skills-categories {
-    gap: 38px 16px;
+    grid-template-columns: 1fr;
+    gap: 38px;
   }
 
-  .skill-category {
-    flex-basis: 45%;
-    max-width: 48%;
-  }
-
-  .skill-category-header {
-    margin-bottom: 26px;
-  }
-
-  .skill-category-header h3 {
-    font-size: 0.75rem;
-  }
-
-  .skill i {
-    width: 47px;
-    height: 47px;
-
-    border-radius: 9px;
-
-    font-size: 1.25rem;
-  }
-
-  .skill {
-    font-size: 0.54rem;
-  }
-
-  .skill span {
-    max-width: 70px;
-  }
-
-  .additional-skills {
-    padding: 19px 17px;
-  }
-
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .skill,
-  .skill i,
-  .skill span,
-  .skill-category-header > i,
-  .skill-category-header h3::after,
-  .additional-skill {
-    transition: none;
+  .skills {
+    max-width: 270px;
+    margin: 0 auto;
   }
 
 }
