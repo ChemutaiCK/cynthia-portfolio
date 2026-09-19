@@ -3503,6 +3503,150 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+  /* =========================================================
+     EXPERIENCE INTERACTIVE TIMELINE
+     ========================================================= */
+
+  const experienceList = document.querySelector(".experience-list");
+  const experienceItems = document.querySelectorAll(".experience-item");
+
+  if (experienceList && experienceItems.length) {
+
+    /* Create the detail card */
+    const detailCard = document.createElement("div");
+    detailCard.className = "experience-detail-card";
+
+    experienceList.appendChild(detailCard);
+
+
+    /* Get information from each experience */
+    const experiences = Array.from(experienceItems).map((item) => {
+
+      const number = item.querySelector(".experience-number")?.textContent.trim() || "";
+
+      const period =
+        item.querySelector(".experience-period")?.textContent.trim() || "";
+
+      const title =
+        item.querySelector("h3")?.textContent.trim() || "";
+
+      const company =
+        item.querySelector("h4")?.textContent.trim() || "";
+
+      const type =
+        item.querySelector(".experience-type")?.textContent.trim() || "";
+
+      const description =
+        item.querySelector(".experience-content > p")?.textContent.trim() || "";
+
+      const technologies = Array.from(
+        item.querySelectorAll(".experience-techs span")
+      ).map((tech) => tech.textContent.trim());
+
+      return {
+        number,
+        period,
+        title,
+        company,
+        type,
+        description,
+        technologies
+      };
+    });
+
+
+    /* Display selected experience */
+    function showExperience(index) {
+
+      const experience = experiences[index];
+
+      if (!experience) return;
+
+
+      /* Active item */
+      experienceItems.forEach((item, itemIndex) => {
+        item.classList.toggle(
+          "active",
+          itemIndex === index
+        );
+      });
+
+
+      /* Build technology tags */
+      const techHTML = experience.technologies
+        .map((tech) => `<span>${tech}</span>`)
+        .join("");
+
+
+      /* Update right-hand card */
+      detailCard.innerHTML = `
+        <div class="experience-detail-inner">
+
+          <span class="experience-detail-period">
+            ${experience.period}
+          </span>
+
+          <h3>
+            ${experience.title}
+          </h3>
+
+          <h4>
+            ${experience.company}
+            <span>@</span>
+            ${experience.type}
+          </h4>
+
+          <p>
+            ${experience.description}
+          </p>
+
+          <div class="experience-detail-techs">
+            ${techHTML}
+          </div>
+
+        </div>
+      `;
+
+
+      /* Smooth animation */
+      detailCard.classList.remove("show");
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          detailCard.classList.add("show");
+        });
+      });
+    }
+
+
+    /* Make every experience clickable */
+    experienceItems.forEach((item, index) => {
+
+      item.addEventListener("click", () => {
+        showExperience(index);
+      });
+
+      item.setAttribute("tabindex", "0");
+
+      item.addEventListener("keydown", (event) => {
+
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          showExperience(index);
+        }
+
+      });
+
+    });
+
+
+    /* Show first experience when page loads */
+    showExperience(0);
+
+  }
+</script>
+
 </body>
 
 </html>
