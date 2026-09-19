@@ -32,6 +32,11 @@
 
 <body>
 
+<!-- INTRO / GREETING -->
+<div class="intro-screen" id="intro-screen">
+  <div class="intro-greeting" id="intro-greeting">Hello</div>
+</div>
+
   <!-- MENU -->
   <header class="header">
 
@@ -3426,8 +3431,77 @@ if (dynamicRole && dynamicArticle) {
 }
 
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
+  const introScreen = document.getElementById("intro-screen");
+  const introGreeting = document.getElementById("intro-greeting");
 
+  if (!introScreen || !introGreeting) return;
+
+  const greetings = [
+  "Hello",
+  "Hola",
+  "Jambo",
+  "你好",
+  "Bonjour",
+  "Ciao",
+  "Olá",
+  "こんにちは",
+  "안녕하세요",
+  
+];
+
+  let index = 0;
+
+  function enterGreeting() {
+
+    /* Reset classes */
+    introGreeting.classList.remove("enter", "leave");
+
+    /* Force animation restart */
+    void introGreeting.offsetWidth;
+
+    /* Change text BEFORE animation */
+    introGreeting.textContent = greetings[index];
+
+    /* Animate in */
+    introGreeting.classList.add("enter");
+
+    /* Keep greeting visible */
+    setTimeout(() => {
+
+      /* Animate out */
+      introGreeting.classList.remove("enter");
+      introGreeting.classList.add("leave");
+
+      setTimeout(() => {
+
+        index++;
+
+        /* Finished */
+        if (index >= greetings.length) {
+
+          setTimeout(() => {
+            introScreen.classList.add("hide");
+          }, 250);
+
+          return;
+        }
+
+        /* Next greeting */
+        enterGreeting();
+
+      }, 500);
+
+    }, 500);
+  }
+
+  /* Start */
+  enterGreeting();
+
+});
+</script>
 
 </body>
 
