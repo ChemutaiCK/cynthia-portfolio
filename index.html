@@ -902,6 +902,7 @@
               and UI/UX designs into functional applications.
             </p>
 
+
            
               <div class="experience-techs">
                 <span><i class="fa-brands fa-react"></i> React.js</span>
@@ -936,13 +937,24 @@
             </div>
 
             <p>
-              Contributed to enterprise software development, frontend
-              implementation, UI/UX workflows, testing, and system
-              integration. Translated Figma designs and requirements into
-              responsive interfaces using React, Vite, and Tailwind CSS.
-              Supported API integration, functional testing, troubleshooting,
-              and AI-enabled software solutions while maintaining project
-              confidentiality.
+              Developed responsive web applications using React, JavaScript, HTML,
+              CSS, Vite, and Tailwind CSS, translating Figma designs and functional
+              requirements into user-focused interfaces.
+              Contributed to AI and enterprise software projects, including AHRIA (HR
+              AI Recruitment Management System) and MIA (AI-powered IT
+              Management Inquiry System), supporting frontend development, UI/UX,
+              workflows, and application functionality.
+              Contributed to HR/Payroll Management, Asset Management, and Data
+              Management Systems, developing responsive interfaces, dashboards,
+              workflows, and user-facing features.
+              Designed UI/UX prototypes and application workflows in Figma, focusing
+              on usability, responsive design, accessibility, and visual consistency.
+              Integrated frontend applications with APIs and backend services to
+              support application functionality and data integration.
+              Performed QA, functional, and responsive testing, identifying and
+              resolving UI, usability, and workflow issues.
+              Used Git/GitHub for version control and maintained technical
+              documentation, testing reports and workflows.
             </p>
 
             <div class="experience-techs">
@@ -978,11 +990,18 @@
             </div>
 
             <p>
-              Supported software development activities including application
-              development, testing, debugging, troubleshooting, and implementation
-              of software solutions. Assisted with improving application
-              functionality and reliability while working within a collaborative
-              development environment.
+              Developed and maintained mobile and web applications for fintech
+              products.
+              Implemented frontend and backend features based on business and
+              user requirements.
+              Supported database management and data processing for financial
+              and transactional systems.
+              Performed testing, debugging, and code optimization to improve
+              application performance and stability.
+              Assisted with application deployments, system updates, and technical
+              documentation while following secure coding practices.
+              Collaborated with cross-functional teams to troubleshoot issues and
+              deliver reliable, scalable software solutions.
             </p>
 
             <div class="experience-techs">
@@ -1016,11 +1035,23 @@
             </div>
 
             <p>
-              Supported software development and application support activities
-              within an institutional environment. Participated in testing,
-              troubleshooting, and implementation of software solutions while
-              gaining practical experience with development workflows and
-              technical problem-solving.
+              Developed full-stack applications using Laravel, React.js, Tailwind CSS,
+              Python, Django, and Flask.
+              Developed a Security Management System using Laravel, React.js, and
+              Tailwind CSS, implementing user workflows, application functionality,
+              and database-driven features.
+              Developed a Heart Disease Prediction System using Python, Django,
+              and Flask, implementing data preprocessing, visualization, model
+              training, and evaluation.
+              Participated in software testing, debugging, performance optimization,
+              and deployment activities to improve system reliability and
+              functionality.
+              Applied Object-Oriented Programming (OOP), modular architecture,
+              and Agile/Scrum development practices.
+              Analyzed requirements, designed application solutions, troubleshot
+              technical issues, and contributed to software documentation.
+              Supported system updates and software improvements throughout
+              the development lifecycle
             </p>
             
             <div class="experience-techs">
@@ -1046,7 +1077,7 @@
 
               <div>
                 <span class="experience-period">2024</span>
-                <h3>ICT Support </h3>
+                <h3>IT Support </h3>
                 <h4>East African Portland Cement PLC</h4>
               </div>
 
@@ -1055,11 +1086,19 @@
             </div>
 
             <p>
-              Provided technical support and troubleshooting for hardware,
-              software, networking, and user-related IT issues. Supported
-              day-to-day ICT operations by diagnosing technical problems,
-              assisting users, and helping maintain reliable IT services
-              within the organization.
+              Provided technical support and troubleshooting for hardware, software,
+              applications, and network connectivity.
+              Supported software testing, system updates, deployments, and
+              technical documentation.
+              Assisted with Active Directory user administration, password
+              management, and domain-related tasks.
+              Supported LAN/WAN connectivity, structured cabling, and basic network
+              troubleshooting.
+              Assisted with information-security practices and system reliability
+              initiatives.
+              Provided end-user support and technical guidance to improve
+              operational productivity.
+
             </p>
 
             <div class="experience-techs">
@@ -3589,33 +3628,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       /* Update right-hand card */
-      detailCard.innerHTML = `
-        <div class="experience-detail-inner">
+const descriptionPoints = experience.description
+  .split(/(?<=[.!?])\s+(?=[A-Z])/)
+  .map(point => point.trim())
+  .filter(Boolean);
 
-          <span class="experience-detail-period">
-            ${experience.period}
-          </span>
+detailCard.innerHTML = `
 
-          <h3>
-            ${experience.title}
-          </h3>
+  <div class="experience-detail-inner">
 
-          <h4>
-            ${experience.company}
-            <span>@</span>
-            ${experience.type}
-          </h4>
 
-          <p>
-            ${experience.description}
-          </p>
+<h3>
+  ${experience.title}
+</h3>
 
-          <div class="experience-detail-techs">
-            ${techHTML}
-          </div>
+<h4>
+  ${experience.company}
+  <span>@</span>
+  ${experience.type}
+</h4>
+<span class="experience-detail-period">
+  ${experience.period}
+</span>
 
-        </div>
-      `;
+<ul class="detail-points">
+  ${descriptionPoints.map(point => `
+    <li>${point}</li>
+  `).join("")}
+</ul>
+
+<div class="experience-detail-techs">
+  ${techHTML}
+</div>
+
+  </div>
+`;
 
 
       /* Smooth animation */
