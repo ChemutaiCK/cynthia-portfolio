@@ -3621,10 +3621,46 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
 
-      /* Build technology tags */
-      const techHTML = experience.technologies
-        .map((tech) => `<span>${tech}</span>`)
-        .join("");
+                    /* Build technology tags with icons */
+              const techIcons = {
+              "React": "fa-brands fa-react",
+              "React.js": "fa-brands fa-react",
+              "JavaScript": "fa-brands fa-js",
+              "TypeScript": "fa-solid fa-code",
+              "Python": "fa-brands fa-python",
+              "Git/GitHub": "fa-brands fa-git-alt",
+              "REST APIs": "fa-solid fa-code",
+              "Vite": "fa-solid fa-bolt",
+              "Tailwind CSS": "fa-solid fa-wind",
+              "Figma": "fa-brands fa-figma",
+              "Yii2": "fa-brands fa-php",
+              "PostgreSQL": "fa-solid fa-database",
+              "Web Development": "fa-solid fa-globe",
+              "Laravel": "fa-brands fa-laravel",
+              "Testing & Debugging": "fa-solid fa-bug",
+              "IT Support": "fa-solid fa-headset",
+              "Networking": "fa-solid fa-network-wired",
+              "System Support": "fa-solid fa-server",
+              "Hardware & Software": "fa-solid fa-laptop",
+              "Troubleshooting": "fa-solid fa-screwdriver-wrench"
+              };
+
+              const techHTML = experience.technologies
+              .map((tech) => {
+              const icon = techIcons[tech] || "fa-solid fa-code";
+
+              return `
+                <span>
+                  <i class="${icon}" aria-hidden="true"></i>
+                  ${tech}
+                </span>
+              `;
+              
+
+
+              })
+              .join("");
+
 
 
       /* Update right-hand card */

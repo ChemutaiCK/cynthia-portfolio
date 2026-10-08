@@ -4531,7 +4531,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.07);
 
 .experience-detail-techs span {
 position: relative;
-
+ gap: 8px;
 display: inline-flex;
 align-items: center;
 justify-content: center;
@@ -4562,6 +4562,31 @@ background 0.25s ease,
 border-color 0.25s ease,
 box-shadow 0.25s ease,
 transform 0.25s ease;
+}
+
+/* Keep technology icons in their brand colors */
+.experience-detail-techs span i.fa-react {
+  color: #61DAFB;
+}
+
+.experience-detail-techs span i.fa-js {
+  color: #F7DF1E;
+}
+
+.experience-detail-techs span i.fa-python {
+  color: #3776AB;
+}
+
+.experience-detail-techs span i.fa-figma {
+  color: #F24E1E;
+}
+
+.experience-detail-techs span i.fa-git-alt {
+  color: #F05032;
+}
+
+.experience-detail-techs span i.fa-laravel {
+  color: #FF2D20;
 }
 
 .experience-detail-techs span:hover {
