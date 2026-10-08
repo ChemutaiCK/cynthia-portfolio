@@ -3975,7 +3975,7 @@ footer p {
 
 .experience-section {
   position: relative;
-  padding: 120px 0;
+  padding: 90px 0;
   overflow: hidden;
 }
 
@@ -3986,7 +3986,7 @@ footer p {
 
 .experience-section .section-header {
   max-width: 760px;
-  margin-bottom: 75px;
+  margin-bottom: 45px;
 }
 
 .experience-section .section-label {
@@ -4033,11 +4033,11 @@ footer p {
   position: relative;
 
   display: grid;
-  grid-template-columns: minmax(420px, 0.85fr) minmax(420px, 1.15fr);
+  grid-template-columns: minmax(360px, 0.82fr) minmax(420px, 1.18fr);
 
-  gap: 80px;
+  gap: 55px;
 
-  min-height: 600px;
+  min-height: 560px;
 }
 
 
@@ -4084,7 +4084,7 @@ footer p {
 
   width: 100%;
 
-  padding: 0 0 35px;
+  padding: 0 0 15px;
 
   opacity: 1;
 
@@ -4110,10 +4110,10 @@ footer p {
   position: relative;
   z-index: 3;
 
-  flex: 0 0 57px;
+  flex: 0 0 48px;
 
-  width: 57px;
-  height: 57px;
+  width: 48px;
+  height: 48px;
 
   display: flex;
   align-items: center;
@@ -4136,7 +4136,7 @@ footer p {
   letter-spacing: 0.08em;
 
   box-shadow:
-    0 0 0 7px #050507;
+    0 0 0 6px #050507;
 
   transition:
     color 0.3s ease,
@@ -4634,6 +4634,7 @@ footer p {
 
     padding-bottom: 5px;
   }
+  
 
 
   .experience-item:hover,
