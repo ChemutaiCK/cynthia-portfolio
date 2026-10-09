@@ -4229,16 +4229,16 @@ footer p {
   display: inline-flex;
   align-items: center;
 
-  padding: 6px 11px;
+  padding: 8px 14px;
 
   border: 1px solid rgba(255, 47, 146, 0.18);
   border-radius: 999px;
 
   background: rgba(255, 47, 146, 0.035);
 
-  color: #9d9299;
+  color: #cfc4cb;
 
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 600;
 
   white-space: nowrap;
