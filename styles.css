@@ -4291,11 +4291,8 @@ footer p {
 
 .experience-item.active .experience-number {
   color: #ffffff;
-
   border-color: #ff2f92;
-
   background: #ff2f92;
-
   box-shadow:
     0 0 0 7px #050507,
     0 0 28px rgba(255, 47, 146, 0.3);
@@ -4359,6 +4356,7 @@ footer p {
 
   position: absolute;
 
+  
   top: -120px;
   right: -100px;
 
