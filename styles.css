@@ -5103,7 +5103,6 @@ transform: none;
   z-index: 11;
 }
 
-
 /* ================================
    WORKFLOW RESPONSIVE
 ================================ */
@@ -5121,7 +5120,6 @@ transform: none;
   }
 
 }
-
 
 @media (max-width: 820px) {
 
@@ -5277,7 +5275,6 @@ transform: none;
   font-size: 0.78rem;
 }
 
-
 /* ================================
    BOOKING BOARD
 ================================ */
@@ -5300,7 +5297,6 @@ transform: none;
     0 0 35px rgba(255, 35, 143, 0.04);
 }
 
-
 /* ================================
    BOOKING STEP
 ================================ */
@@ -5316,18 +5312,13 @@ transform: none;
 .booking-step > span {
   width: 36px;
   height: 36px;
-
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 1px solid var(--border);
   border-radius: 10px;
-
   color: var(--pink-secondary);
-
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
