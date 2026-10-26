@@ -5293,7 +5293,6 @@ transform: none;
   display: flex;
   align-items: center;
   gap: 14px;
-
   margin-bottom: 24px;
 }
 .booking-step > span {
@@ -5309,17 +5308,13 @@ transform: none;
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
-
   background: rgba(255, 35, 143, 0.08);
 }
 
 .booking-step small {
   display: block;
-
   margin-bottom: 3px;
-
   color: var(--text-muted);
-
   font-size: 0.7rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
